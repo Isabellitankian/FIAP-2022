@@ -1,0 +1,143 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled2.ipynb",
+      "provenance": [],
+      "collapsed_sections": [],
+      "authorship_tag": "ABX9TyMobjTKoGZ93rp7y+XrVlQf",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Isabellitankian/FIAP-2022/blob/main/Fiap_cyberv2\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "cUZMyBdIKWw3"
+      },
+      "outputs": [],
+      "source": [
+        "Agora usando inteligência artificial "
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "pUgMpLWkKYJ9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install fuzzywuzzy[speedup]\n"
+      ],
+      "metadata": {
+        "id": "WWdEZP1lKXn3"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from fuzzywuzzy import process"
+      ],
+      "metadata": {
+        "id": "8B1zkjDeLMw9"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lista = ['arma', 'negunho', 'pr3to', 'mac4co', 'burro', 'f3dor','c$c$', 'baiano', 'japones abre o olho', 'cabeçudo']\n",
+        "\n",
+        "texto = input('Digite o texto: ')\n",
+        "\n",
+        "process.extract(texto, lista)\n",
+        "\n",
+        "\n",
+        "  "
+      ],
+      "metadata": {
+        "id": "HZtOZPQoLVR7"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def getMatch(field):\n",
+        "  match_list = ['arma', 'negunho', 'pr3to', 'mac4co', 'burro', 'f3dor','c$c$', 'baiano', 'japones abre o olho', 'cabeçudo']\n",
+        "  search_list = process.extract(field, match_list)\n",
+        "\n",
+        "  result = []\n",
+        "\n",
+        "  for text in search_list:\n",
+        "   if text [1] > 54:\n",
+        "    result.append(text)\n",
+        "  if len(result) == 0:\n",
+        "    return \"Você não foi racista\"\n",
+        "  return \"Você é criminoso\"\n",
+        "\n",
+        "getMatch(input())\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "HaRxeTiaMziX",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 52
+        },
+        "outputId": "78e4e816-d208-451b-eab3-f43efb913b80"
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "você parece o pelé\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Você é criminoso'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 34
+        }
+      ]
+    }
+  ]
+}
